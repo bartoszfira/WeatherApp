@@ -12,7 +12,6 @@ class CurrentWeatherView: UIView {
     var summaryLabel = UILabel()
     var tempLabel = UILabel()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         build()
@@ -35,9 +34,8 @@ class CurrentWeatherView: UIView {
         buildLabel(&locationLabel)
         buildLabel(&tempLabel, fontSize: 64)
         buildLabel(&summaryLabel)
-        // Interakcja tutaj?
-        locationLabel.isUserInteractionEnabled = true
 
+        locationLabel.isUserInteractionEnabled = true
     }
 
     func buildLabel(_ label: inout UILabel, fontSize: CGFloat = 24) {

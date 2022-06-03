@@ -8,8 +8,6 @@
 import UIKit
 import CoreLocation
 
-// Location: used CoreLocation
-
 class ViewController: UIViewController {
 
     @IBOutlet var table: UITableView!
@@ -103,15 +101,16 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        if indexPath.section == 0 {
+        switch indexPath.section {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: HourlyTableViewCell.identifier, for: indexPath) as! HourlyTableViewCell
             cell.configure(with: dailyDto.hourly)
             return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier, for: indexPath) as! WeatherTableViewCell
+            cell.configure(with: dailyDto.daily[indexPath.row])
+            return cell
         }
-        //Continue
-        let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier, for: indexPath) as! WeatherTableViewCell
-        cell.configure(with: dailyDto.daily[indexPath.row])
-        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -119,22 +118,24 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 { //
-            // 1 cell to collectionTableViewCell
+        switch section {
+        case 0:
             return 1
-        } // return models count
-        return dailyDto?.daily.count ?? 0
+        default:
+            return dailyDto?.daily.count ?? 0
+        }
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 140
+        switch indexPath.section {
+        case 140:
+            return 1
+        default:
+            return 90
         }
-        return 90
     }
-    
 }
 
 extension ViewController: CLLocationManagerDelegate {
