@@ -130,8 +130,8 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 140:
-            return 1
+        case 0:
+            return 140
         default:
             return 90
         }
