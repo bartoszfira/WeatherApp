@@ -1,24 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XXf-WX-xa8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XXf-WX-xa8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FBm-nO-YEA"/>
+                            <constraint firstItem="XXf-WX-xa8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="QCb-QG-QRs"/>
+                            <constraint firstItem="XXf-WX-xa8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="afA-fy-tTz"/>
+                            <constraint firstItem="XXf-WX-xa8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wt7-Yc-Lu5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="XXf-WX-xa8" id="cHg-uH-3dg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="79"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="oco-L9-zVN">
+            <objects>
+                <viewController storyboardIdentifier="mapViewController" id="pGo-BX-tz1" customClass="MapViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mQF-jO-AyV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OFx-3w-fkq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6Y-T0-0vn">
+                                <rect key="frame" x="368" y="60" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Uy8-ju-hwh"/>
+                                    <constraint firstAttribute="height" constant="30" id="quY-Le-yYU"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="closeButtonAction:" destination="pGo-BX-tz1" eventType="touchUpInside" id="7rS-HL-3k0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wbn-k6-28Z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wbn-k6-28Z" firstAttribute="trailing" secondItem="B6Y-T0-0vn" secondAttribute="trailing" constant="16" id="P5t-Sp-hJP"/>
+                            <constraint firstAttribute="bottom" secondItem="OFx-3w-fkq" secondAttribute="bottom" id="UW6-e8-SdP"/>
+                            <constraint firstItem="OFx-3w-fkq" firstAttribute="top" secondItem="mQF-jO-AyV" secondAttribute="top" id="cWN-Px-Wvc"/>
+                            <constraint firstItem="Wbn-k6-28Z" firstAttribute="trailing" secondItem="OFx-3w-fkq" secondAttribute="trailing" id="pBg-EM-eP7"/>
+                            <constraint firstItem="B6Y-T0-0vn" firstAttribute="top" secondItem="Wbn-k6-28Z" secondAttribute="top" constant="16" id="rjm-kZ-iSH"/>
+                            <constraint firstItem="OFx-3w-fkq" firstAttribute="leading" secondItem="Wbn-k6-28Z" secondAttribute="leading" id="zlw-zJ-EfI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="OFx-3w-fkq" id="3I9-Ih-2UV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N4N-W6-2o7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818.84057971014499" y="77.678571428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
