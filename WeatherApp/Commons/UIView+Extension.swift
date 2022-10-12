@@ -17,8 +17,4 @@ extension UIView {
         return UINib(nibName: identifier, bundle: nil)
     }
     
-//    @IBAction func didTapLabel() {
-//        let vc = MapViewController()
-//        present(vc, animated: true)
-//    }
 }
