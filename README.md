@@ -20,7 +20,7 @@ The application allows you to obtain weather data through the use of API. The ap
 **Available for iOS.**
 
 <p align="center">
-  ![Dashboard](https://user-images.githubusercontent.com/92322181/195436830-76166795-25e7-4e96-aa0a-a025e95e69a9.png))
+  <img src = "https://user-images.githubusercontent.com/92322181/195436830-76166795-25e7-4e96-aa0a-a025e95e69a9.png" >
 </p>
 
 ## Features
